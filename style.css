@@ -131,6 +131,7 @@ main {
 
 .card-tittle {
     font-size: 1.2rem;
+    font-weight: 800;
     margin-block: 16px;
 }
 
@@ -145,4 +146,7 @@ main {
 
 .country-card img {
     width: 100%;
+    aspect-ratio: 3/1.8;
+    object-fit: cover;
+
 }
