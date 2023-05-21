@@ -77,8 +77,19 @@ h6 {
 }
 
 body {
+    --background-color: hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --element-color: hsl(0, 0%, 100%);
     margin: 0;
     font-family: Nunito, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark {
+    --background-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 0%, 100%);
+    --element-color: hsl(209, 23%, 22%);
 }
 
 main {
@@ -88,6 +99,7 @@ main {
 .header-container {
     box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
     padding: 1.5rem 1.2rem;
+    background-color: var(--element-color);
 
 }
 
@@ -104,10 +116,14 @@ main {
     font-weight: 800;
 }
 
+.theme-switcher {
+    cursor: pointer;
+}
+
 .countries-containter {
     max-width: 1200px;
-    margin-inline: auto;
     margin-top: 4rem;
+    margin-inline: auto;
     display: flex;
     gap: 4rem;
     flex-wrap: wrap;
@@ -122,6 +138,7 @@ main {
     box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: all 0.2s ease-in-out;
+    background-color: var(--element-color);
 }
 
 .country-card:hover {
@@ -148,12 +165,62 @@ main {
     width: 100%;
     aspect-ratio: 3/1.8;
     object-fit: cover;
+}
 
+.search-filter-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.search-container {
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    border-radius: 4px;
+    padding-left: 1.5rem;
+    overflow: hidden;
+    color: #999;
+    display: flex;
+    align-items: center;
+    background-color: var(--element-color);
+    color: var(--text-color);
+}
+
+
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    width: 90%;
+    background-color: inherit;
+    color: inherit;
+}
+
+.search-container input::placeholder {
+    color: #999;
+}
+
+#filter-by-region {
+    width: 250px;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background-color: var(--element-color);
+    color: var(--text-color);
 }
 
 @media (max-width: 768px) {
     .countries-containter {
         justify-content: center;
+    }
+
+    .country-card {
+        width: 90vw;
     }
 
     .title {
@@ -162,6 +229,11 @@ main {
 
     .header-container p {
         font-size: .8rem;
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+        gap: 2rem;
     }
 
 }
