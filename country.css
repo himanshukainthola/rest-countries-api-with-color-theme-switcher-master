@@ -83,6 +83,7 @@ h6 {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  background-color: var(--element-color);
 }
 
 .country-details-container {
@@ -130,6 +131,7 @@ h6 {
   box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   font-size: 0.875rem;
+  background-color: var(--element-color);
 }
 
 @media (max-width: 840px) {

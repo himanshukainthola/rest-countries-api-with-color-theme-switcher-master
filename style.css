@@ -86,7 +86,7 @@ body {
     color: var(--text-color);
 }
 
-body.dark {
+body[theme="dark"] {
     --background-color: hsl(207, 26%, 17%);
     --text-color: hsl(0, 0%, 100%);
     --element-color: hsl(209, 23%, 22%);
@@ -120,6 +120,7 @@ main {
     cursor: pointer;
 }
 
+
 .countries-containter {
     max-width: 1200px;
     margin-top: 4rem;
@@ -127,7 +128,7 @@ main {
     display: flex;
     gap: 4rem;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .country-card {
@@ -221,6 +222,7 @@ main {
 
     .country-card {
         width: 90vw;
+        max-width: 450px;
     }
 
     .title {

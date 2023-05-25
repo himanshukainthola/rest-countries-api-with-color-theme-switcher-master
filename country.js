@@ -1,3 +1,4 @@
+const themeChanger = document.querySelector('.theme-switcher')
 const countryName = new URLSearchParams(location.search).get('name')
 const flagsImg = document.querySelector(".country-details img")
 const countryTitle = document.querySelector('.country-title')
@@ -60,3 +61,22 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
             });
         }
     })
+
+
+function changeColor() {
+    const bodyElem = document.body
+    let dataTheme = bodyElem.getAttribute('theme')
+    let newTheme = (dataTheme === 'light') ? 'dark' : 'light'
+
+    bodyElem.setAttribute('theme', newTheme)
+
+    localStorage.setItem('theme', newTheme)
+}
+
+
+themeChanger.addEventListener('click', changeColor)
+
+let local = localStorage.getItem('theme')
+if (local === 'dark') {
+    document.body.setAttribute('theme', 'dark')
+}

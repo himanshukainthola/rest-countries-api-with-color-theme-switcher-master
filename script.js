@@ -6,7 +6,6 @@ const themeChanger = document.querySelector('.theme-switcher');
 
 let allCountriesData
 
-
 fetch('https://restcountries.com/v3.1/all')
     .then((res) => res.json())
     .then((data) => {
@@ -45,11 +44,24 @@ function renderCountries(data) {
     })
 }
 
+function changeColor() {
+    const bodyElem = document.body
+    let dataTheme = bodyElem.getAttribute('theme')
+    let newTheme = (dataTheme === 'light') ? 'dark' : 'light'
+
+    bodyElem.setAttribute('theme', newTheme)
+
+    localStorage.setItem('theme', newTheme)
+}
+
 searchInput.addEventListener('input', (e) => {
     const filteredCountries = allCountriesData.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
     renderCountries(filteredCountries)
 })
 
-themeChanger.addEventListener('click', () => {
-    document.body.classList.toggle('dark')
-})
+themeChanger.addEventListener('click', changeColor)
+
+let local = localStorage.getItem('theme')
+if (local === 'dark') {
+    document.body.setAttribute('theme', 'dark')
+}
