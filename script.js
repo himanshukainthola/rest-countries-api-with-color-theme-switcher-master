@@ -9,16 +9,29 @@ let allCountriesData
 fetch('https://restcountries.com/v3.1/all')
     .then((res) => res.json())
     .then((data) => {
-        renderCountries(data)
-        allCountriesData = data
-    })
+        renderCountries(data);
+        allCountriesData = data;
+    });
 
 filterByRegion.addEventListener('change', (e) => {
-    fetch(`https://restcountries.com/v3.1/region/${filterByRegion.value}`)
-        .then((res) => res.json())
-        .then(renderCountries)
+    if (filterByRegion.value == "All") {
+        fetch('https://restcountries.com/v3.1/all')
+            .then((res) => res.json())
+            .then(renderCountries);
+    }
 
-})
+    else if (filterByRegion.value == "Polar") {
+        fetch(`https://restcountries.com/v3.1/name/Antarctica`)
+            .then((res) => res.json())
+            .then(renderCountries);
+    }
+
+    else {
+        fetch(`https://restcountries.com/v3.1/region/${filterByRegion.value}`)
+            .then((res) => res.json())
+            .then(renderCountries);
+    }
+});
 
 
 function renderCountries(data) {
